@@ -3,7 +3,7 @@
 class Player {
     constructor (radius) {
         this.radius = radius;
-        this.pos = createVector( width/2, floor(height * 0.95));
+        this.reset();
     }
 
     draw() {
@@ -16,5 +16,9 @@ class Player {
             this.pos.x += dx;
         }
         
+    }
+
+    reset() {
+        this.pos = createVector( width/2, floor(height * 0.95));
     }
 }

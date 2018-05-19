@@ -6,6 +6,13 @@
       body {
         padding: 0;
         margin: 0;
+        text-align: center;
+      }
+      html, body {
+        width: 100%;
+      }
+      table {
+        margin: auto;
       }
     </style>
     <script src="./lib/p5.min.js"></script>
@@ -16,9 +23,22 @@
     <script src="./player.js"></script>
   </head>
   <body>
-    <div id="canvasContainer"></div>
+    <h1>Asteroid Dodger</h1>
+    <p>Try to avoid the asterods! As you progress, there will be more of them!</p>
 
-    <h4 id="score"></h4>
-    <h4 id="asteroidcnt"></h4>
+    <div id="canvasContainer"></div>
+    
+    <table>
+      <tr>
+        <th>Score:</th>
+        <th>Asteroidcount:</th>
+      </tr>
+      <tr>
+        <td id="score"></td>
+        <td id="asteroidcnt"></td>
+      </tr>
+    </table>
+    <br>
+    <button onclick="restartGame()"> Restart</button>
   </body>
 </html>

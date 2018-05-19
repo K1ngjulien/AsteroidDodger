@@ -19,10 +19,7 @@ function setup() {
   player = new Player(15);
 
 
-  for (let i = 0; i < 100; i++) {
-    asteroids.push(new Asteroid(asteroidsize))
-  }
-  updateScore();
+  restartGame();
 }
 
 function draw() {
@@ -67,8 +64,8 @@ function draw() {
 }
 
 function updateScore() {
-  document.getElementById('score').innerText = 'Score: ' +  score;
-  document.getElementById('asteroidcnt').innerText = 'Asteroidcount: ' +  asteroids.length;
+  document.getElementById('score').innerText =  score;
+  document.getElementById('asteroidcnt').innerText = asteroids.length;
 }
 
 // Called when gameover
@@ -76,4 +73,22 @@ function gameOver() {
   noLoop();
   background(255,0,0,150);
 
+}
+
+function restartGame() {
+  player.reset();
+
+  score = 0;
+  asteroids = []
+  for (let i = 0; i < 100; i++) {
+    asteroids.push(new Asteroid(asteroidsize))
+  }
+  updateScore();
+  loop();
+}
+
+function keyPressed() {
+  if(keyCode === 13) { //EnterKey
+    restartGame();
+  }
 }
