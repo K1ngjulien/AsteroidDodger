@@ -3,6 +3,7 @@
 let player;
 let score = 0;
 let asteroids = []
+const dist = 5;
 
 const asteroidsize = 10;
 
@@ -27,7 +28,7 @@ function draw() {
   
   // Get Keyboad Input
   if (keyIsPressed === true) {
-    const dist = 5;
+
     switch(keyCode) {
       case LEFT_ARROW:
       case 97:        // A key
@@ -40,6 +41,17 @@ function draw() {
     }
   }
 
+  if(touches.length > 0) {
+    console.log(touches)
+    if(touches[0].x > width/2) {  //Touched on the Right side of the canvas
+      console.log('right')
+      player.move(dist);
+    }
+    else {  // Touched on the left side
+      player.move(dist * -1);
+      console.log('left')
+    }
+  }
   // Update Asteroids
   asteroids.forEach( a => {
 
